@@ -35,7 +35,11 @@ function search() {
     <input type="text" v-model="searchInput" placeholder="city" />
     <button @click="search">Search</button>
   </div>
-  <div v-for="carDealer in data" :key="carDealer.id">
+  <div
+    v-for="carDealer in data"
+    :key="carDealer.carType + carDealer.dealerName"
+  >
     <p>{{ carDealer.dealerName }}</p>
+    <span>{{ carDealer.carType }}</span>
   </div>
 </template>

@@ -1,5 +1,4 @@
 export type KiaCarDealer = {
-  rn: number;
   dealerName: string;
   dealerPhone: string;
   dealerPostcode: number;
@@ -12,8 +11,27 @@ export type KiaData = {
   list: KiaCarDealer[];
 };
 
+export type SeatCarDealer = {
+  NAME1: string;
+  TELEFON: string;
+  PLZ: number;
+  ORT: string;
+  URL: string;
+};
+
+export type SeatData = {
+  allDealers: {
+    v: SeatCarDealer[];
+  };
+};
+
+export enum carTypes {
+  KIA = "Kia",
+  SEAT = "Seat",
+}
+
 export type CarDealer = {
-  id: number;
+  carType: carTypes;
   dealerName: string;
   dealerPhone: string;
   dealerPostcode: number;
