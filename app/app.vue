@@ -1,9 +1,13 @@
 <script setup lang="ts">
+import type { CarDealer } from "~~/server/types";
+
 const searchInput = ref("");
 const loading = ref(false);
-const data = ref([]);
+const data = ref<CarDealer[]>([]);
 
 function search() {
+  data.value = [];
+
   const fetchData = async () => {
     loading.value = true;
 
@@ -29,7 +33,9 @@ function search() {
 <template>
   <div>
     <input type="text" v-model="searchInput" placeholder="city" />
-    <br />
     <button @click="search">Search</button>
+  </div>
+  <div v-for="carDealer in data" :key="carDealer.id">
+    <p>{{ carDealer.dealerName }}</p>
   </div>
 </template>
