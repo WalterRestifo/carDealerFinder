@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import * as XLSX from "xlsx";
-import { exportToExcel } from "../../app/utils";
+import { exportToExcel } from "../../../app/utils";
 
 vi.mock("xlsx", () => {
   return {

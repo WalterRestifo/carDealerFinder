@@ -6,6 +6,8 @@ import {
   OpelCarDealer,
 } from "./types";
 
+export const noUrl = "Keine webseite";
+
 export const serializeKiaDealerData = (
   carDealers: KiaCarDealer[]
 ): CarDealer[] => {
@@ -17,7 +19,7 @@ export const serializeKiaDealerData = (
       dealerPhone: carDealer.dealerPhone,
       dealerPostcode: carDealer.dealerPostcode,
       dealerResidence: carDealer.dealerResidence,
-      websiteUrl: carDealer.websiteUrl || "",
+      websiteUrl: carDealer.websiteUrl || noUrl,
     };
   });
 
@@ -32,7 +34,7 @@ export const serializeSeatData = (carDealers: SeatCarDealer[]): CarDealer[] => {
       dealerPhone: carDealer.TELEFON,
       dealerPostcode: carDealer.PLZ,
       dealerResidence: carDealer.ORT,
-      websiteUrl: carDealer.URL || "",
+      websiteUrl: carDealer.URL || noUrl,
     };
   });
 
@@ -47,7 +49,7 @@ export const serializeOpelData = (carDealers: OpelCarDealer[]): CarDealer[] => {
       dealerPhone: carDealer.generalContact.phone1,
       dealerPostcode: carDealer.address.postalCode,
       dealerResidence: carDealer.address.cityName,
-      websiteUrl: carDealer.dealerUrl || "",
+      websiteUrl: carDealer.dealerUrl || noUrl,
     };
   });
 
