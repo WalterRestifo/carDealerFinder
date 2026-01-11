@@ -16,6 +16,11 @@
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
-    "@types/xlsx": "^0.0.35"
+    "@nuxt/test-utils": "^3.23.0",
+    "@types/xlsx": "^0.0.35",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^20.1.0",
+    "playwright-core": "^1.57.0",
+    "vitest": "^3.2.4"
   }
 }
