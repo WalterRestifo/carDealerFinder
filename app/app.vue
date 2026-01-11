@@ -1,48 +1,54 @@
 <script setup lang="ts">
 import type { CarDealer } from "~~/server/types";
 import { exportToExcel } from "./utils";
+import CarDealerItem from "./components/CarDealerItem.vue";
+import SearchBar from "./components/SearchBar.vue";
 
 const searchInput = ref("");
 const loading = ref(false);
-const data = ref<CarDealer[]>([]);
+const carDealerList = ref<CarDealer[]>([]);
 
-const search = () => {
-  data.value = [];
+const searchCarDealers = async (searchParam: string) => {
+  carDealerList.value = [];
 
   const fetchData = async () => {
     loading.value = true;
 
     try {
-      data.value = await $fetch("/api/getCarDealers", {
+      return await $fetch("/api/getCarDealers", {
         query: {
-          search: searchInput.value,
+          search: searchParam,
         },
       });
     } catch (err) {
       console.log(err);
+      return [];
     } finally {
       loading.value = false;
     }
   };
 
-  fetchData();
+  return (await fetchData()) || [];
 };
+
+const updateData = (data: CarDealer[]) => (carDealerList.value = data);
 </script>
 
 <template>
-  <div>
-    <input type="text" v-model="searchInput" placeholder="city" />
-    <button @click="search">Search</button>
+  <div class="space-y-4">
+    <SearchBar :searchFunction="searchCarDealers" @update:data="updateData" />
+    <ul>
+      <CarDealerItem
+        v-for="carDealer in carDealerList"
+        :key="carDealer.carType + carDealer.dealerName"
+        :carDealer="carDealer"
+      />
+    </ul>
+    <button
+      v-if="carDealerList.length > 0"
+      @click="exportToExcel(carDealerList)"
+    >
+      Download Excel File
+    </button>
   </div>
-  <div
-    v-for="carDealer in data"
-    :key="carDealer.carType + carDealer.dealerName"
-  >
-    <p>{{ carDealer.dealerName }}</p>
-    <span>{{ carDealer.carType }}</span>
-  </div>
-
-  <button v-if="data.length > 0" @click="exportToExcel(data)">
-    Download Excel File
-  </button>
 </template>
