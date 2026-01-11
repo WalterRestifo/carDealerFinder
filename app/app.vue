@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { CarDealer } from "~~/server/types";
+import { exportToExcel } from "./utils";
 
 const searchInput = ref("");
 const loading = ref(false);
@@ -42,4 +43,8 @@ function search() {
     <p>{{ carDealer.dealerName }}</p>
     <span>{{ carDealer.carType }}</span>
   </div>
+
+  <button v-if="data.length > 0" @click="exportToExcel(data)">
+    Download Excel File
+  </button>
 </template>
