@@ -6,7 +6,7 @@ const searchInput = ref("");
 const loading = ref(false);
 const data = ref<CarDealer[]>([]);
 
-function search() {
+const search = () => {
   data.value = [];
 
   const fetchData = async () => {
@@ -18,8 +18,6 @@ function search() {
           search: searchInput.value,
         },
       });
-
-      console.log("data.value: ", data.value);
     } catch (err) {
       console.log(err);
     } finally {
@@ -28,7 +26,7 @@ function search() {
   };
 
   fetchData();
-}
+};
 </script>
 
 <template>

@@ -25,9 +25,24 @@ export type SeatData = {
   };
 };
 
+export type OpelCarDealer = {
+  dealerName: string;
+  generalContact: {
+    phone1: string;
+  };
+  address: {
+    postalCode: number;
+    cityName: string;
+  };
+  dealerUrl: string;
+};
+
+export type OpelData = OpelCarDealer[];
+
 export enum carTypes {
   KIA = "Kia",
   SEAT = "Seat",
+  OPEL = "Opel",
 }
 
 export type CarDealer = {

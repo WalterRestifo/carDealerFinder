@@ -1,4 +1,10 @@
-import { CarDealer, KiaCarDealer, SeatCarDealer, carTypes } from "./types";
+import {
+  CarDealer,
+  KiaCarDealer,
+  SeatCarDealer,
+  carTypes,
+  OpelCarDealer,
+} from "./types";
 
 export const serializeKiaDealerData = (
   carDealers: KiaCarDealer[]
@@ -27,6 +33,21 @@ export const serializeSeatData = (carDealers: SeatCarDealer[]): CarDealer[] => {
       dealerPostcode: carDealer.PLZ,
       dealerResidence: carDealer.ORT,
       websiteUrl: carDealer.URL || "",
+    };
+  });
+
+  return result;
+};
+
+export const serializeOpelData = (carDealers: OpelCarDealer[]): CarDealer[] => {
+  const result = carDealers.map((carDealer) => {
+    return {
+      carType: carTypes.OPEL,
+      dealerName: carDealer.dealerName,
+      dealerPhone: carDealer.generalContact.phone1,
+      dealerPostcode: carDealer.address.postalCode,
+      dealerResidence: carDealer.address.cityName,
+      websiteUrl: carDealer.dealerUrl || "",
     };
   });
 
