@@ -6,6 +6,11 @@ import {
 } from "../utils";
 import { db } from "../db/createDatabase";
 
+const PLZOfCityInTheMiddleOfGermany = "37269";
+const veryBigRadius = "650";
+const bigNumber = "1000";
+const germany = "DE";
+
 export default defineNitroPlugin(async () => {
   try {
     const kiaData: KiaData = await $fetch(
@@ -26,15 +31,15 @@ export default defineNitroPlugin(async () => {
       "https://infra.prod.sformproduct.stla-aws.net/forms-product-dealers-api/v1/dealers",
       {
         query: {
-          searchTerm: "Deutschland",
+          searchTerm: PLZOfCityInTheMiddleOfGermany,
           searchType: "city",
-          distance: "50",
+          distance: veryBigRadius,
           distanceUnit: "km",
-          maxResults: "9999",
+          maxResults: bigNumber,
           brand: "OPEL",
           consumer: "FormsProduct",
           activities: "VN",
-          countryCode: "DE",
+          countryCode: germany,
           languageCode: "de",
         },
       }
