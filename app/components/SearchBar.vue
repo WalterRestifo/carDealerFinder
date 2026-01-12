@@ -30,19 +30,21 @@ const search = async () => {
 </script>
 
 <template>
-  <div class="flex gap-2">
+  <label for="searchInput" class="text-white">Stadt oder PLZ eingeben:</label>
+  <div class="flex gap-2 flex-wrap">
     <input
+      id="searchInput"
       type="text"
       v-model="searchInput"
-      placeholder="Enter search"
-      class="border rounded px-2 py-1 flex-1"
+      placeholder="Stadt oder PLZ"
+      class="border border-white rounded px-2 py-1 flex-1 placeholder-white text-white"
     />
     <button
       @click="search"
-      class="bg-blue-500 text-white px-4 py-1 rounded"
+      class="bg-blue-500 text-white px-4 py-1 rounded border border-white"
       :disabled="loading"
     >
-      {{ loading ? "Searching..." : "Search" }}
+      {{ loading ? "Suchen..." : "Suche" }}
     </button>
   </div>
 </template>

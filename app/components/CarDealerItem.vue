@@ -7,8 +7,8 @@ defineProps<{
 </script>
 
 <template>
-  <li>
-    <p>{{ carDealer.dealerName }}</p>
-    <span>{{ carDealer.carType }}</span>
+  <li class="border border-white rounded-xl p-2">
+    <span class="text-white">{{ carDealer.dealerName }}</span>
+    <span class="text-white"> - {{ carDealer.carType }}</span>
   </li>
 </template>
