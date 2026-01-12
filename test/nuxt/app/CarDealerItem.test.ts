@@ -1,18 +1,9 @@
 import { mount } from "@vue/test-utils";
 import { describe, it, expect } from "vitest";
 import CarDealerItem from "../../../app/components/CarDealerItem.vue";
-import { carTypes, type CarDealer } from "~~/server/types";
+import { mockDealer } from "../../mocks";
 
 describe("CarDealerItem.vue", () => {
-  const mockDealer: CarDealer = {
-    carType: carTypes.KIA,
-    dealerName: "Autohaus John Doe",
-    dealerPhone: "0123 456789",
-    dealerPostcode: 63775,
-    dealerResidence: "Musterstadt",
-    websiteUrl: "www.test@test.de",
-  };
-
   it("renders dealer name", () => {
     const wrapper = mount(CarDealerItem, {
       props: { carDealer: mockDealer },

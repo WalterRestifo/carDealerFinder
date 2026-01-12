@@ -1,3 +1,5 @@
+import tailwindcss from "@tailwindcss/vite";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ["@nuxt/test-utils/module"],
@@ -7,5 +9,9 @@ export default defineNuxtConfig({
     experimental: {
       database: true,
     },
+  },
+  css: ["./app/assets/css/main.css"],
+  vite: {
+    plugins: [tailwindcss()],
   },
 });
