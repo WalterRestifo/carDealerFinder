@@ -3,6 +3,7 @@ import type { CarDealer } from "~~/server/types";
 import { exportToExcel } from "./utils";
 import CarDealerItem from "./components/CarDealerItem.vue";
 import SearchBar from "./components/SearchBar.vue";
+import Button from "./components/Button.vue";
 
 const carDealerList = ref<CarDealer[]>([]);
 
@@ -30,7 +31,9 @@ const updateData = (data: CarDealer[]) => (carDealerList.value = data);
 
 <template>
   <div class="bg-[url(/manSearchingForCar.png)] bg-cover h-screen">
-    <div class="bg-linear-to-r from-black h-screen flex">
+    <div
+      class="bg-linear-to-r from-black/95 via-black/90 via-100% lg:via-black/90 lg:via-40% to-transparent h-screen flex"
+    >
       <div
         class="space-y-4 border-3 w-5/6 lg:w-2/5 border-white/70 p-8 rounded-lg m-auto lg:m-0 flex flex-col h-full"
       >
@@ -47,13 +50,11 @@ const updateData = (data: CarDealer[]) => (carDealerList.value = data);
             :carDealer="carDealer"
           />
         </ul>
-        <button
-          class="bg-blue-500 text-white px-4 py-1 rounded border border-white"
+        <Button
           v-if="carDealerList.length > 0"
-          @click="exportToExcel(carDealerList)"
-        >
-          Download Excel File
-        </button>
+          text="Download Excel File"
+          :clickCallback="() => exportToExcel(carDealerList)"
+        />
       </div>
     </div>
   </div>

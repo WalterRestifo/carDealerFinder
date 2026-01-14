@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import Button from "./Button.vue";
 
 const props = defineProps<{
   searchFunction: (searchParam: string) => Promise<any[]>;
@@ -39,12 +40,10 @@ const search = async () => {
       placeholder="Stadt oder PLZ"
       class="border border-white rounded px-2 py-1 flex-1 placeholder-white text-white"
     />
-    <button
-      @click="search"
-      class="bg-blue-500 text-white px-4 py-1 rounded border border-white"
+    <Button
+      :text="loading ? 'Suchen...' : 'Suche'"
+      :clickCallback="search"
       :disabled="loading"
-    >
-      {{ loading ? "Suchen..." : "Suche" }}
-    </button>
+    />
   </div>
 </template>
