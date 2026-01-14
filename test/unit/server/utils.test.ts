@@ -27,7 +27,7 @@ describe("serializeKiaDealerData", () => {
         dealerName: "Kia Center",
         dealerPhone: "123456",
         dealerPostcode: 10115,
-        dealerResidence: "Berlin",
+        dealerResidence: "berlin",
         websiteUrl: "https://kia.example",
       },
     ]);
@@ -70,7 +70,7 @@ describe("serializeSeatData", () => {
         dealerName: "Seat Autohaus",
         dealerPhone: "987654",
         dealerPostcode: 80331,
-        dealerResidence: "Munich",
+        dealerResidence: "munich",
         websiteUrl: "https://seat.example",
       },
     ]);
@@ -117,7 +117,7 @@ describe("serializeOpelData", () => {
         dealerName: "Opel Händler",
         dealerPhone: "555000",
         dealerPostcode: 50667,
-        dealerResidence: "Cologne",
+        dealerResidence: "cologne",
         websiteUrl: "https://opel.example",
       },
     ]);

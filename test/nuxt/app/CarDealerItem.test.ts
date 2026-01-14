@@ -1,4 +1,4 @@
-import { mount } from "@vue/test-utils";
+import { mount, VueWrapper } from "@vue/test-utils";
 import { describe, it, expect } from "vitest";
 import CarDealerItem from "../../../app/components/CarDealerItem.vue";
 import { mockDealer } from "../../mocks";
@@ -26,7 +26,20 @@ describe("CarDealerItem.vue", () => {
     });
 
     expect(wrapper.element.tagName).toBe("LI");
-    expect(wrapper.find("p").text()).toBe(mockDealer.dealerName);
-    expect(wrapper.find("span").text()).toBe(mockDealer.carType);
+    expect(
+      wrapper
+        .findAll("span")
+        .find((span) => span.text() === mockDealer.dealerName)
+        ?.exists()
+    ).toBe(true);
+
+    console.log(wrapper.html());
+
+    expect(
+      wrapper
+        .findAll("span")
+        .find((span) => span.text() === "- " + mockDealer.carType)
+        ?.exists()
+    ).toBe(true);
   });
 });

@@ -23,7 +23,7 @@ describe("SearchComponent.vue", () => {
 
     expect(input.exists()).toBe(true);
     expect(button.exists()).toBe(true);
-    expect(button.text()).toBe("Search");
+    expect(button.text()).toBe("Suche");
   });
 
   it("updates input value on typing", async () => {
