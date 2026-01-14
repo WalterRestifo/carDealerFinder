@@ -14,7 +14,7 @@ const searchCarDealers = async (searchParam: string) => {
     try {
       return await $fetch("/api/getCarDealers", {
         query: {
-          search: searchParam,
+          search: searchParam.toLowerCase(),
         },
       });
     } catch (err) {

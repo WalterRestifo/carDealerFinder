@@ -1,6 +1,7 @@
-# Nuxt Minimal Starter
+# Car Dealer finder
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This app finds all the KIA, SEAT and OPEL car dealer in your city!
+Just insert the name of your city or your PLZ in the input and click on search. You can export the founded car dealers in an excel file clicking on the download excel button.
 
 ## Setup
 
@@ -10,14 +11,6 @@ Make sure to install dependencies:
 # npm
 npm install
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
 ## Development Server
@@ -28,48 +21,4 @@ Start the development server on `http://localhost:3000`:
 # npm
 npm run dev
 
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

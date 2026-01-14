@@ -18,7 +18,7 @@ export const serializeKiaDealerData = (
       dealerName: carDealer.dealerName,
       dealerPhone: carDealer.dealerPhone,
       dealerPostcode: carDealer.dealerPostcode,
-      dealerResidence: carDealer.dealerResidence,
+      dealerResidence: carDealer.dealerResidence.toLowerCase(),
       websiteUrl: carDealer.websiteUrl || noUrl,
     };
   });
@@ -33,7 +33,7 @@ export const serializeSeatData = (carDealers: SeatCarDealer[]): CarDealer[] => {
       dealerName: carDealer.NAME1,
       dealerPhone: carDealer.TELEFON,
       dealerPostcode: carDealer.PLZ,
-      dealerResidence: carDealer.ORT,
+      dealerResidence: carDealer.ORT.toLocaleLowerCase(),
       websiteUrl: carDealer.URL || noUrl,
     };
   });
@@ -48,7 +48,7 @@ export const serializeOpelData = (carDealers: OpelCarDealer[]): CarDealer[] => {
       dealerName: carDealer.dealerName,
       dealerPhone: carDealer.generalContact.phone1,
       dealerPostcode: carDealer.address.postalCode,
-      dealerResidence: carDealer.address.cityName,
+      dealerResidence: carDealer.address.cityName.toLowerCase(),
       websiteUrl: carDealer.dealerUrl || noUrl,
     };
   });
